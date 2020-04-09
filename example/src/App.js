@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import { ExampleComponent } from 'mt-elements'
-import 'mt-elements/dist/index.css'
+import { Input } from "mt-elements";
+
+import "mt-elements/dist/index.css";
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
+  return <Input />;
+};
 
-export default App
+export default App;
