@@ -1,11 +1,31 @@
 import React from "react";
 
-import { Input } from "mt-elements";
+import {
+  InputText,
+  InputNumber,
+  Button,
+  SelectInput,
+  Autocomplete,
+  ThemeProvider
+} from "mt-elements";
 
-import "mt-elements/dist/index.css";
+const theme = {
+  primaryColor: "blue",
+  secondaryColor: "red",
+  paragraphfont: "Open Sans",
+  titlesFont: "Open Sans"
+};
 
 const App = () => {
-  return <Input />;
+  return (
+    <ThemeProvider theme={theme}>
+      <InputText />
+      <InputNumber />
+      <Button />
+      <SelectInput />
+      <Autocomplete />
+    </ThemeProvider>
+  );
 };
 
 export default App;
