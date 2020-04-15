@@ -1,18 +1,18 @@
 import React from "react";
 import { createUseStyles, ThemeProvider } from "react-jss";
 
-const ThemeMTProvider = (props) => {
+const ThemeMTProvider = props => {
   const { theme } = props;
   const useStyles = createUseStyles({
     "@global": {
       html: {
         color: theme.textColor || null,
-        font: `${theme.fontSizeBase} ${theme.fontFamily}`,
+        font: `${theme.fontSizeBase} ${theme.fontFamily}`
       },
       body: {
-        margin: 0,
-      },
-    },
+        margin: 0
+      }
+    }
   });
   if (!theme) {
     throw new Error(

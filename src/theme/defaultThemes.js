@@ -10,7 +10,7 @@ const defaultThemes = {
     textColor: "black",
     textColorSecondary: "white",
     fontFamily: "'Open Sans', sans-serif",
-    secondaryFontFamily: " 'Roboto', sans-serif",
+    secondaryFontFamily: "'Montserrat', sans-serif",
   },
   dark: {
     primaryColor: "blue",

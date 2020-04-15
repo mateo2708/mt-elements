@@ -6,8 +6,12 @@ const buttonStyles = (theme) => {
       display: "flex",
       alignItems: "center",
       margin: "0.5rem",
+      transition: "box-shadow 0.3s ease",
       "&:hover": {
         cursor: "pointer",
+      },
+      "&:active": {
+        boxShadow: `0px 0px 20px -10px ${theme.primaryColor}`,
       },
     },
     large: {
@@ -28,54 +32,54 @@ const buttonStyles = (theme) => {
     primary: {
       backgroundColor: theme.primaryColor,
       color: theme.textColorSecondary,
-      border: `2px solid ${theme.primaryColor}`,
+      border: `1px solid ${theme.primaryColor}`,
       borderRadius: "4px",
       transition:
         "background-color 0.2s ease, color 0.2s ease, border 0.2s ease",
       "&:hover": {
         backgroundColor: "white",
         color: theme.primaryColor,
-        border: `2px solid ${theme.primaryColor}`,
+        border: `1px solid ${theme.primaryColor}`,
       },
       "&:disabled": {
         opacity: 0.9,
         backgroundColor: "#d8d8d8",
         color: "#a9a9a9",
-        border: "2px solid #a9a9a9",
+        border: "1px solid #a9a9a9",
       },
     },
     secondary: {
       backgroundColor: "white",
       color: "#616161",
-      border: "2px solid #9d9d9d",
+      border: "1px solid #9d9d9d",
       borderRadius: "4px",
       transition: "color 0.2s ease, border 0.2s ease",
       "&:hover": {
         color: theme.primaryColor,
-        border: `2px solid ${theme.primaryColor}`,
+        border: `1px solid ${theme.primaryColor}`,
       },
       "&:disabled": {
         opacity: 0.9,
         backgroundColor: "#d8d8d8",
         color: "#a9a9a9",
-        border: "2px solid #a9a9a9",
+        border: "1px solid #a9a9a9",
       },
     },
     dashed: {
       backgroundColor: "white",
       color: "#616161",
-      border: "2px dashed #9d9d9d",
+      border: "1px dashed #9d9d9d",
       borderRadius: "4px",
       transition: "color 0.2s ease, border 0.2s ease",
       "&:hover": {
         color: theme.primaryColor,
-        border: `2px dashed ${theme.primaryColor}`,
+        border: `1px dashed ${theme.primaryColor}`,
       },
       "&:disabled": {
         opacity: 0.9,
         backgroundColor: "#d8d8d8",
         color: "#a9a9a9",
-        border: "2px dashed #a9a9a9",
+        border: "1px dashed #a9a9a9",
       },
     },
     link: {
@@ -87,7 +91,7 @@ const buttonStyles = (theme) => {
       "&:disabled": {
         opacity: 0.9,
         color: "#a9a9a9",
-        border: "2px dashed #a9a9a9",
+        border: "1px dashed #a9a9a9",
       },
     },
     round: {

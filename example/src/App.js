@@ -6,7 +6,7 @@ import {
   Button,
   SelectInput,
   Autocomplete,
-  ThemeProvider,
+  ThemeMTProvider,
   defaultThemes
 } from "mt-elements";
 
@@ -16,7 +16,7 @@ const test = () => {
 
 const App = () => {
   return (
-    <ThemeProvider theme={defaultThemes.light}>
+    <ThemeMTProvider theme={defaultThemes.light}>
       <div
         style={{
           width: "100vw",
@@ -26,8 +26,30 @@ const App = () => {
           alignItems: "center"
         }}
       >
-        <InputText />
-        <InputNumber />
+        <div style={{ display: "flex", flexFlow: "column nowrap" }}>
+          <InputText
+            type="text"
+            size="large"
+            placeholder="Type text"
+            onChange={test}
+          />
+          <InputText
+            type="password"
+            placeholder="Placeholder"
+            shape="round"
+            label="Läbel"
+            onChange={test}
+          />
+          <InputText
+            type="email"
+            size="small"
+            placeholder="Email"
+            label="El label"
+          />
+
+          <InputNumber placeholder="el numbér" />
+        </div>
+
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
           <Button type="primary" size="large" shape="round" onClick={test}>
             Prueba 1
@@ -46,7 +68,7 @@ const App = () => {
         <SelectInput />
         <Autocomplete />
       </div>
-    </ThemeProvider>
+    </ThemeMTProvider>
   );
 };
 
