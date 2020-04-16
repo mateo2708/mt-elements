@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import {
   InputText,
@@ -15,6 +15,8 @@ const test = () => {
 };
 
 const App = () => {
+  const inputRef = useRef();
+
   return (
     <ThemeMTProvider theme={defaultThemes.light}>
       <div
@@ -23,7 +25,7 @@ const App = () => {
           height: "100vh",
           display: "flex",
           justifyContent: "space-evenly",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
@@ -32,12 +34,17 @@ const App = () => {
             size="large"
             placeholder="Type text"
             onChange={test}
+            alertMode="error"
+            alertMessage="elError.com"
+            inputRef={inputRef}
           />
           <InputText
             type="password"
             placeholder="Placeholder"
             shape="round"
             label="Läbel"
+            alertMode="warning"
+            alertMessage="laWarning.com"
             onChange={test}
           />
           <InputText
@@ -45,9 +52,12 @@ const App = () => {
             size="small"
             placeholder="Email"
             label="El label"
+            alertMode="success"
+            alertMessage="elSuccess.com"
           />
-
-          <InputNumber placeholder="el numbér" />
+        </div>
+        <div style={{ display: "flex", flexFlow: "column nowrap" }}>
+          <InputNumber size="large" placeholder="El númbér" />
         </div>
 
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>

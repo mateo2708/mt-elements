@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import inputTextStyles from "./InputTextStyles";
 import { createUseStyles, useTheme } from "react-jss";
 import classNames from "classnames";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const useStyles = createUseStyles(inputTextStyles);
 
@@ -16,6 +17,9 @@ const useStyles = createUseStyles(inputTextStyles);
  * @param {string} label - Label text
  * @param {boolean} disabled - Defines where the input is disabled
  * @param {function} onChange - Callback function
+ * @param {string} alertMode - Type of alert ["success", "warning", "error"]
+ * @param {string} alertMessage - Message of the alert
+ * @param {reference} inputRef - Message of the alert
  * @example
  * <InputText
  *    type="password"
@@ -34,9 +38,10 @@ const InputText = (props) => {
     shape,
     placeholder,
     disabled,
-    error,
+    alertMode,
+    alertMessage,
     onChange,
-    ref,
+    inputRef,
   } = props;
 
   const theme = useTheme();
@@ -49,6 +54,8 @@ const InputText = (props) => {
     [classes.inputContainer]: true,
     [classes[size] || classes.medium]: true,
     [classes[shape]]: true,
+    [classes[alertMode]]: true,
+    [classes.disabled]: disabled,
   });
 
   useEffect(() => {
@@ -72,29 +79,35 @@ const InputText = (props) => {
   const handlePassword = () => {
     setPasswordFlag(!passwordFlag);
   };
-
+  const parentProps = ({ alertMode, alertMessage, reference }, ...props) =>
+    props;
   return (
     <div className={classes.container}>
       {label && <div className={classes.label}>{label}</div>}
       <div className={boxClass}>
         <input
-          {...props}
+          {...parentProps}
           type={contType}
-          autoComplete="off"
           className={classes.input}
           placeholder={placeholder}
           disabled={disabled}
           onChange={handleChange}
-          ref={ref}
+          ref={inputRef}
           value={text}
         />
         {type === "password" && (
-          <div className={classes.icon} onClick={handlePassword}>
-            <i>{passwordFlag ? "Si" : "No"}</i>
+          <div className={classes.icon} onClick={!disabled && handlePassword}>
+            {passwordFlag ? (
+              <FaEye color="#a0a0a0" />
+            ) : (
+              <FaEyeSlash color="#a0a0a0" />
+            )}
           </div>
         )}
       </div>
-      {error && <div>{error}</div>}
+      {alertMessage && (
+        <div className={classes[`${alertMode}Message`]}>{alertMessage}</div>
+      )}
     </div>
   );
 };
@@ -105,6 +118,8 @@ InputText.propTypes = {
   shape: PropTypes.oneOf(["round"]),
   disabled: PropTypes.bool,
   label: PropTypes.string,
+  alertMode: PropTypes.string,
+  alertMessage: PropTypes.string,
   onChange: PropTypes.func,
   ref: PropTypes.node,
 };
