@@ -30,7 +30,7 @@ const useStyles = createUseStyles(inputTextStyles);
  * />
  */
 
-const InputText = (props) => {
+const InputText = props => {
   const {
     type,
     size,
@@ -41,7 +41,7 @@ const InputText = (props) => {
     alertMode,
     alertMessage,
     onChange,
-    inputRef,
+    inputRef
   } = props;
 
   const theme = useTheme();
@@ -55,12 +55,12 @@ const InputText = (props) => {
     [classes[size] || classes.medium]: true,
     [classes[shape]]: true,
     [classes[alertMode]]: true,
-    [classes.disabled]: disabled,
+    [classes.disabled]: disabled
   });
 
   useEffect(() => {
     if (type === "password") {
-      setContType(passwordFlag && type);
+      setContType(passwordFlag ? type : "text");
     } else {
       setContType(type);
     }
@@ -72,7 +72,7 @@ const InputText = (props) => {
     }
   }, [text, onChange]);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setText(event.target.value);
   };
 
@@ -121,7 +121,7 @@ InputText.propTypes = {
   alertMode: PropTypes.string,
   alertMessage: PropTypes.string,
   onChange: PropTypes.func,
-  ref: PropTypes.node,
+  ref: PropTypes.node
 };
 
 export default InputText;

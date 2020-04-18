@@ -14,9 +14,9 @@ const InputNumberStyles = theme => {
     input: {
       flexGrow: 1,
       height: "100%",
+      paddingRight: "32px",
       color: theme.textColor,
       fontFamily: theme.fontFamily,
-      fontSize: "1.1rem",
       border: "none",
       padding: "0 8px",
       borderRadius: "3px",
@@ -47,11 +47,12 @@ const InputNumberStyles = theme => {
     },
     round: {
       borderRadius: "50rem",
-      "& :first-child": {
+      "& >:first-child": {
         borderRadius: "50rem"
       },
-      "& :last-child": {
-        borderRadius: "50rem"
+      "& >:last-child": {
+        borderTopRightRadius: "50rem",
+        borderBottomRightRadius: "50rem"
       }
     },
     spinner: {
@@ -63,6 +64,7 @@ const InputNumberStyles = theme => {
       display: "flex",
       flexFlow: "column nowrap",
       alignItems: "center",
+      overflow: "hidden",
       transition: "opacity .24s linear .1s",
       "&:hover": {
         cursor: "pointer"
@@ -75,6 +77,7 @@ const InputNumberStyles = theme => {
       backgroundColor: "#00000010",
       borderLeft: "1px solid #00000030",
       borderBottom: "1px solid #00000030",
+      overflow: "hidden",
       "&:hover": {
         backgroundColor: "#00000018"
       }
@@ -86,6 +89,7 @@ const InputNumberStyles = theme => {
       backgroundColor: "#00000010",
       borderLeft: "1px solid #00000030",
       borderTop: "1px solid #00000030",
+      overflow: "hidden",
       "&:hover": {
         backgroundColor: "#00000018"
       }

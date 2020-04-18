@@ -25,7 +25,7 @@ const App = () => {
           height: "100vh",
           display: "flex",
           justifyContent: "space-evenly",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
@@ -57,7 +57,25 @@ const App = () => {
           />
         </div>
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
-          <InputNumber size="large" placeholder="El númbér" />
+          <InputNumber
+            size="large"
+            placeholder="Formateado"
+            formatter={value =>
+              `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+            max="10000"
+            min="0"
+            step="100"
+            alertMode="warning"
+            alertMessage="Warning number"
+          />
+          <InputNumber
+            shape="round"
+            size="medium"
+            placeholder="Normal"
+            max="5"
+            min="1"
+          />{" "}
         </div>
 
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
