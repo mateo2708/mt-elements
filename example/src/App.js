@@ -10,10 +10,11 @@ import {
   defaultThemes
 } from "mt-elements";
 
-const test = () => {
-  console.log("testeado");
-};
+const { Option } = SelectInput;
 
+const test = e => {
+  console.log("testeado", e);
+};
 const App = () => {
   const inputRef = useRef();
 
@@ -93,7 +94,17 @@ const App = () => {
           </Button>
         </div>
 
-        <SelectInput />
+        <div style={{ display: "flex", flexFlow: "column nowrap" }}>
+          <SelectInput
+            label="Select Input"
+            placeholder="Select something"
+            onChange={test}
+          >
+            <Option value="1">Opción 1</Option>
+            <Option value="2">Opción 2</Option>
+            <Option value="3">Opción 3</Option>
+          </SelectInput>
+        </div>
         <Autocomplete />
       </div>
     </ThemeMTProvider>

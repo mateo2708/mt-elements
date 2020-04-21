@@ -30,8 +30,9 @@ const useStyles = createUseStyles(inputTextStyles);
  * />
  */
 
-const InputText = props => {
+const InputText = (props) => {
   const {
+    id,
     type,
     size,
     label,
@@ -41,7 +42,7 @@ const InputText = props => {
     alertMode,
     alertMessage,
     onChange,
-    inputRef
+    inputRef,
   } = props;
 
   const theme = useTheme();
@@ -55,7 +56,7 @@ const InputText = props => {
     [classes[size] || classes.medium]: true,
     [classes[shape]]: true,
     [classes[alertMode]]: true,
-    [classes.disabled]: disabled
+    [classes.disabled]: disabled,
   });
 
   useEffect(() => {
@@ -72,7 +73,7 @@ const InputText = props => {
     }
   }, [text, onChange]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setText(event.target.value);
   };
 
@@ -83,10 +84,15 @@ const InputText = props => {
     props;
   return (
     <div className={classes.container}>
-      {label && <div className={classes.label}>{label}</div>}
+      {label && (
+        <div className={classes.label}>
+          <label htmlFor={id}>{label}</label>
+        </div>
+      )}
       <div className={boxClass}>
         <input
           {...parentProps}
+          id={id}
           type={contType}
           className={classes.input}
           placeholder={placeholder}
@@ -121,7 +127,7 @@ InputText.propTypes = {
   alertMode: PropTypes.string,
   alertMessage: PropTypes.string,
   onChange: PropTypes.func,
-  ref: PropTypes.node
+  ref: PropTypes.node,
 };
 
 export default InputText;

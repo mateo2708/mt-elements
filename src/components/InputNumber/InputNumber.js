@@ -8,34 +8,27 @@ import classNames from "classnames";
 const useStyles = createUseStyles(inputNumberStyles);
 
 /**
- * InputNumber component
+ * InputText component
  *
- * @component InputNumber
+ * @component InputText
  * @param {string} size - Size of the input: [large, medium, small]
  * @param {string} shape - Shape of input: [round]
  * @param {string} label - Label text
- * @param {number} step - Step value for spinner action
- * @param {number} max - Max value
- * @param {number} min - Min Value
- * @param {function} formatter - Function to format the input value
  * @param {boolean} disabled - Defines where the input is disabled
  * @param {function} onChange - Callback function
  * @param {string} alertMode - Type of alert ["success", "warning", "error"]
  * @param {string} alertMessage - Message of the alert
  * @param {reference} inputRef - Message of the alert
  * @example
- * <InputNumber
- *   size="large"
- *   placeholder="Formateado"
- *   formatter={value =>
- *     `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
- *   }
- *   max="10000"
- *   min="0"
- *   step="100"
+ * <InputText
+ *    type="password"
+ *    placeholder="Placeholder"
+ *    shape="round"
+ *    label="Label"
+ *    onChange={(e) => console.log(e))}
  * />
  */
-const InputNumber = props => {
+const InputNumber = (props) => {
   const {
     size,
     label,
@@ -50,7 +43,7 @@ const InputNumber = props => {
     alertMessage,
     onChange,
     inputRef,
-    className
+    className,
   } = props;
 
   const theme = useTheme();
@@ -64,7 +57,7 @@ const InputNumber = props => {
     [classes[shape]]: true,
     [classes[alertMode]]: true,
     [classes.disabled]: disabled,
-    className
+    className,
   });
 
   useEffect(() => {
@@ -73,7 +66,7 @@ const InputNumber = props => {
     }
   }, [value, onChange]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     let text = event.target.value;
     let newValue = parseFloat(text.replace(/[^0-9.]/g, ""));
     setValue(newValue);
@@ -95,7 +88,7 @@ const InputNumber = props => {
     setShowSpinner(!showSpinner);
   };
 
-  const handleSpinnerAction = action => {
+  const handleSpinnerAction = (action) => {
     const stepValue = parseFloat(step) || 1;
     switch (action) {
       case "up":
@@ -174,7 +167,7 @@ InputNumber.propTypes = {
   alertMode: PropTypes.string,
   alertMessage: PropTypes.string,
   onChange: PropTypes.func,
-  inputRef: PropTypes.node
+  inputRef: PropTypes.node,
 };
 
 export default InputNumber;
