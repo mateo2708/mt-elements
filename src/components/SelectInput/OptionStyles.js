@@ -1,4 +1,4 @@
-import { flexCenterRow, flexRowWrap, boxShadow } from "../../theme/stylesData";
+import { flexRowWrap } from "../../theme/stylesData";
 
 const OptionStyles = (theme) => {
   return {

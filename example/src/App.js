@@ -10,6 +10,14 @@ import {
   defaultThemes
 } from "mt-elements";
 
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  test: {
+    width: "20rem"
+  }
+});
+
 const { Option } = SelectInput;
 
 const test = e => {
@@ -17,6 +25,7 @@ const test = e => {
 };
 const App = () => {
   const inputRef = useRef();
+  const classes = useStyles();
 
   return (
     <ThemeMTProvider theme={defaultThemes.light}>
@@ -99,6 +108,19 @@ const App = () => {
             label="Select Input"
             placeholder="Select something"
             onChange={test}
+            alertMode="warning"
+            alertMessage="La warning"
+          >
+            <Option value="1">Opción 1</Option>
+            <Option value="2">Opción 2</Option>
+            <Option value="3">Opción 3</Option>
+          </SelectInput>
+          <SelectInput
+            className={classes.test}
+            label="Select Input"
+            placeholder="Select something"
+            onChange={test}
+            mode="multiple"
           >
             <Option value="1">Opción 1</Option>
             <Option value="2">Opción 2</Option>

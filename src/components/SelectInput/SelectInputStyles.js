@@ -17,24 +17,58 @@ const SelectInputStyles = (theme) => {
         color: "#a9a9a9",
         cursor: "not-allowed",
       },
-      "& input": {
-        height: "100%",
-        padding: "0 8px",
-        paddingRight: "30px",
-        border: "none",
-        borderRadius: "3px",
-        fontFamily: theme.fontFamily,
-        WebkitAppearance: "none",
-        MozAppearance: "none",
-        appearance: "none",
+    },
+    input: {
+      width: "100%",
+      height: "100%",
+      padding: "0 8px",
+      paddingRight: "30px",
+      border: "none",
+      borderRadius: "3px",
+      fontFamily: theme.fontFamily,
+      WebkitAppearance: "none",
+      MozAppearance: "none",
+      appearance: "none",
+      cursor: "pointer",
+      "& ::-ms-expand": {
+        display: "none",
+      },
+    },
+    inputMultiple: {
+      position: "absolute",
+      width: "100%",
+      top: 0,
+      left: 0,
+      padding: "0",
+    },
+    multipleBox: {
+      zIndex: 10,
+      height: "inherit",
+      ...flexRowWrap,
+      alignItems: "center",
+      "& .icon": {
+        padding: "2px",
+        margin: "auto",
+      },
+    },
+    multipleElement: {
+      position: "relative",
+      backgroundColor: "#e0e0e0",
+      borderRadius: "50rem",
+      padding: "5px 8px ",
+      paddingRight: "30px",
+      margin: "2px 3px",
+    },
+    multipleElementIcon: {
+      position: "absolute",
+      top: 0,
+      right: 0,
+      zIndex: 100,
+      width: "30px",
+      height: "100%",
+      ...flexCenterRow,
+      "&:hover": {
         cursor: "pointer",
-        "& ::-ms-expand": {
-          display: "none",
-        },
-        "&:focus": {
-          outline: 0,
-          ...boxShadow(1),
-        },
       },
     },
     optionBox: {
@@ -45,6 +79,7 @@ const SelectInputStyles = (theme) => {
       borderRadius: "3px",
       position: "absolute",
       top: "calc(100% + 5px)",
+      zIndex: 200,
       left: 0,
       "& ul": {
         padding: 0,
@@ -55,18 +90,14 @@ const SelectInputStyles = (theme) => {
       color: "#a9a9a9",
       marginLeft: "8px",
     },
-    // placeholder: {
-    //   paddingRight: "32px",
-    //   color: "#a9a9a9",
-    // },
     large: {
-      height: "40px",
+      minHeight: "40px",
     },
     medium: {
-      height: "32px",
+      minHeight: "32px",
     },
     small: {
-      height: "24px",
+      minHeight: "24px",
     },
     round: {
       borderRadius: "50rem",
@@ -81,6 +112,7 @@ const SelectInputStyles = (theme) => {
       position: "absolute",
       top: 0,
       right: 0,
+      zIndex: 100,
       width: "30px",
       height: "100%",
       ...flexCenterRow,
