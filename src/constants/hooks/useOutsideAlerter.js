@@ -5,7 +5,6 @@ const useOutsideAlerter = (refs, callback) => {
     const handleClickOutside = (event) => {
       const clicked = refs.reduce((value, ref) => {
         const out = ref.current && !ref.current.contains(event.target);
-        console.log(ref, out);
         return out && value;
       }, true);
       if (clicked) {

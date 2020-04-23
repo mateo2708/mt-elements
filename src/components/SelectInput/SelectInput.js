@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useReducer } from "react";
-import Option from "./Option";
+import PropTypes from "prop-types";
+import Option from "../Option/Option";
 import { createUseStyles, useTheme } from "react-jss";
 import SelectInputStyles from "./SelectInputStyles";
 import classNames from "classnames";
@@ -9,12 +10,36 @@ import useOutsideAlerter from "../../constants/hooks/useOutsideAlerter";
 
 const useStyles = createUseStyles(SelectInputStyles);
 
+/**
+ * SelectInput component
+ *
+ * @component SelectInput
+ * @param {string} mode - Selection mode: [multiple, single (defalut)]
+ * @param {string} size - Size of the input: [large, medium, small]
+ * @param {string} label - Label text
+ * @param {boolean} disabled - Defines where the input is disabled
+ * @param {function} onChange - Callback function
+ * @param {string} alertMode - Type of alert ["success", "warning", "error"]
+ * @param {string} alertMessage - Message of the alert
+ * @param {reference} inputRef - Message of the alert
+ * @example
+ * <SelectInput
+ *   label="Select Input"
+ *   placeholder="Select something"
+ *   onChange={test}
+ *   alertMode="warning"
+ *   alertMessage="La warning"
+ * >
+ *   <Option value="1">Opción 1</Option>
+ *   <Option value="2">Opción 2</Option>
+ *   <Option value="3">Opción 3</Option>
+ * </SelectInput>
+ */
 const SelectInput = (props) => {
   const {
     id,
     size,
     label,
-    shape,
     mode,
     placeholder,
     disabled,
@@ -37,7 +62,6 @@ const SelectInput = (props) => {
   const boxClass = classNames({
     [classes.inputContainer]: true,
     [classes[size] || classes.medium]: true,
-    [classes[shape]]: shape,
     [classes[alertMode]]: alertMode,
     [classes.focused]: focused,
     [classes.disabled]: disabled,
@@ -45,6 +69,7 @@ const SelectInput = (props) => {
   });
 
   const handleSelection = (event) => {
+    event.persist();
     const value = event.target.value
       ? event.target.value.toString()
       : undefined;
@@ -75,13 +100,10 @@ const SelectInput = (props) => {
     const { type, value } = action;
     switch (type) {
       case "selection":
-        console.log("Selection detected: ", value);
         if (mode === "multiple") {
-          console.log("entró al multiple");
           if (value && state.includes(value.toString())) {
             return state.filter((item) => item !== value);
           } else if (value) {
-            console.log("volvió a entrar");
             return [...state, value];
           }
         }
@@ -130,6 +152,7 @@ const SelectInput = (props) => {
           readOnly
           className={classNames({
             [classes.input]: true,
+            [classes[size] || classes.medium]: true,
             [classes.inputMultiple]: mode === "multiple",
           })}
           value={
@@ -169,7 +192,7 @@ const SelectInput = (props) => {
                 children.map((child, key) => {
                   return React.cloneElement(child, {
                     key: key,
-                    handleSelection: handleSelection,
+                    onClick: handleSelection,
                     selected: isSelected(child.props.value),
                   });
                 })
@@ -185,6 +208,15 @@ const SelectInput = (props) => {
       )}
     </div>
   );
+};
+SelectInput.propTypes = {
+  mode: PropTypes.string,
+  size: PropTypes.oneOf(["large", "medium", "small"]),
+  disabled: PropTypes.bool,
+  label: PropTypes.string,
+  alertMode: PropTypes.string,
+  alertMessage: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 SelectInput.Option = Option;

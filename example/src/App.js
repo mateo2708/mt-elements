@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import {
   InputText,
@@ -11,6 +11,7 @@ import {
 } from "mt-elements";
 
 import { createUseStyles } from "react-jss";
+import axios from "axios";
 
 const useStyles = createUseStyles({
   test: {
@@ -24,8 +25,19 @@ const test = e => {
   console.log("testeado", e);
 };
 const App = () => {
-  const inputRef = useRef();
   const classes = useStyles();
+  const inputRef = useRef();
+  const [state, setState] = useState([]);
+  useEffect(() => {
+    axios.get("https://rickandmortyapi.com/api/character").then(response => {
+      console.log(response);
+      setState(
+        response.data.results.reduce((array, item) => {
+          return [...array, item.name];
+        }, [])
+      );
+    });
+  }, []);
 
   return (
     <ThemeMTProvider theme={defaultThemes.light}>
@@ -43,12 +55,12 @@ const App = () => {
             type="text"
             size="large"
             placeholder="Type text"
-            onChange={test}
             alertMode="error"
             alertMessage="elError.com"
             inputRef={inputRef}
           />
           <InputText
+            id="second"
             type="password"
             placeholder="Placeholder"
             shape="round"
@@ -76,8 +88,6 @@ const App = () => {
             max="10000"
             min="0"
             step="100"
-            alertMode="warning"
-            alertMessage="Warning number"
           />
           <InputNumber
             shape="round"
@@ -85,7 +95,7 @@ const App = () => {
             placeholder="Normal"
             max="5"
             min="1"
-          />{" "}
+          />
         </div>
 
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
@@ -102,7 +112,6 @@ const App = () => {
             Prueba 4
           </Button>
         </div>
-
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
           <SelectInput
             label="Select Input"
@@ -110,6 +119,15 @@ const App = () => {
             onChange={test}
             alertMode="warning"
             alertMessage="La warning"
+          >
+            <Option value="1">Opción 1</Option>
+            <Option value="2">Opción 2</Option>
+            <Option value="3">Opción 3</Option>
+          </SelectInput>
+          <SelectInput
+            label="Select Input"
+            placeholder="Select something"
+            onChange={test}
           >
             <Option value="1">Opción 1</Option>
             <Option value="2">Opción 2</Option>
@@ -127,7 +145,25 @@ const App = () => {
             <Option value="3">Opción 3</Option>
           </SelectInput>
         </div>
-        <Autocomplete />
+        <div style={{ display: "flex", flexFlow: "column nowrap" }}>
+          <Autocomplete
+            placeholder="Escribite"
+            label="Autocomplete"
+            options={state}
+          />
+          <Autocomplete
+            placeholder="Escribite"
+            label="Autocomplete"
+            maxOptions="5"
+          >
+            <Option>Opción 1</Option>
+            <Option>Opción 2</Option>
+            <Option>Opción 3</Option>
+            <Option>Opción 4</Option>
+            <Option>Opción 5</Option>
+            <Option>Opción 6</Option>
+          </Autocomplete>
+        </div>
       </div>
     </ThemeMTProvider>
   );

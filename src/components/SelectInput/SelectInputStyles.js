@@ -30,13 +30,18 @@ const SelectInputStyles = (theme) => {
       MozAppearance: "none",
       appearance: "none",
       cursor: "pointer",
-      "& ::-ms-expand": {
-        display: "none",
+      "&:focus": {
+        outline: 0,
       },
+    },
+    focused: {
+      ...boxShadow(1),
     },
     inputMultiple: {
       position: "absolute",
       width: "100%",
+      minHeight: "calc(100%)",
+      height: "not-set",
       top: 0,
       left: 0,
       padding: "0",

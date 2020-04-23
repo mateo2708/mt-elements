@@ -29,7 +29,6 @@ const useStyles = createUseStyles(inputTextStyles);
  *    onChange={(e) => console.log(e))}
  * />
  */
-
 const InputText = (props) => {
   const {
     id,
