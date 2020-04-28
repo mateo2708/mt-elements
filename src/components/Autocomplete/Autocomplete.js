@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { createUseStyles, useTheme } from "react-jss";
 import Option from "../Option/Option";
 import AutocompleteStyles from "./AutocompleteStyles";
@@ -7,6 +8,38 @@ import useOutsideAlerter from "../../constants/hooks/useOutsideAlerter";
 
 const useStyles = createUseStyles(AutocompleteStyles);
 
+/**
+ * Autocomplete component
+ *
+ * @component Autocomplete
+ * @property {string} size - Size of the input: [large, medium, small]
+ * @property {string} label - Label text
+ * @property {boolean} disabled - Defines where the input is disabled
+ * @property {function} onChange - Callback function
+ * @property {string} alertMode - Type of alert ["success", "warning", "error"]
+ * @property {string} alertMessage - Message of the alert
+ * @property {reference} inputRef - Message of the alert
+ * @property {array} options - Array of options to autocomplete
+ * @property {integer} maxOptions - Define de maximum options to display on the box
+ * @example
+ * <Autocomplete
+ *   placeholder="Escribite"
+ *   label="Autocomplete"
+ *   options={state}
+ * />
+ * <Autocomplete
+ *   placeholder="Escribite"
+ *   label="Autocomplete"
+ *   maxOptions="5"
+ * >
+ *   <Option>Opción 1</Option>
+ *   <Option>Opción 2</Option>
+ *   <Option>Opción 3</Option>
+ *   <Option>Opción 4</Option>
+ *   <Option>Opción 5</Option>
+ *   <Option>Opción 6</Option>
+ * </Autocomplete>
+ */
 const Autocomplete = (props) => {
   const {
     id,
@@ -171,5 +204,16 @@ const Autocomplete = (props) => {
 };
 
 Autocomplete.Option = Option;
+
+Autocomplete.propTypes = {
+  size: PropTypes.oneOf(["large", "medium", "small"]),
+  disabled: PropTypes.bool,
+  label: PropTypes.string,
+  alertMode: PropTypes.string,
+  alertMessage: PropTypes.string,
+  onChange: PropTypes.func,
+  options: PropTypes.array,
+  maxOptions: PropTypes.number,
+};
 
 export default Autocomplete;

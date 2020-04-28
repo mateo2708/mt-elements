@@ -14,14 +14,14 @@ const useStyles = createUseStyles(SelectInputStyles);
  * SelectInput component
  *
  * @component SelectInput
- * @param {string} mode - Selection mode: [multiple, single (defalut)]
- * @param {string} size - Size of the input: [large, medium, small]
- * @param {string} label - Label text
- * @param {boolean} disabled - Defines where the input is disabled
- * @param {function} onChange - Callback function
- * @param {string} alertMode - Type of alert ["success", "warning", "error"]
- * @param {string} alertMessage - Message of the alert
- * @param {reference} inputRef - Message of the alert
+ * @property {string} mode - Selection mode: [multiple, single (defalut)]
+ * @property {string} size - Size of the input: [large, medium, small]
+ * @property {string} label - Label text
+ * @property {boolean} disabled - Defines where the input is disabled
+ * @property {function} onChange - Callback function
+ * @property {string} alertMode - Type of alert ["success", "warning", "error"]
+ * @property {string} alertMessage - Message of the alert
+ * @property {reference} inputRef - Message of the alert
  * @example
  * <SelectInput
  *   label="Select Input"

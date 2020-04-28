@@ -10,11 +10,11 @@ const useStyles = createUseStyles(buttonStyles);
  * Button component
  *
  * @component Button
- * @param {string} type - Type of button: [primary, secondary, dashed, link]
- * @param {string} size - Size button: [large, medium, small]
- * @param {string} shape - Shape of button: [round]
- * @param {boolean} disabled - Defines where the button is disabled
- * @param {function} onClick - Callback function
+ * @property {string} type - Type of button: [primary, secondary, dashed, link]
+ * @property {string} size - Size button: [large, medium, small]
+ * @property {string} shape - Shape of button: [round]
+ * @property {boolean} disabled - Defines where the button is disabled
+ * @property {function} onClick - Callback function
  * @example
  * const handleAction = () => {
  *    console.log("Clicked!")

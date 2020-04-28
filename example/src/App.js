@@ -29,7 +29,7 @@ const App = () => {
   const inputRef = useRef();
   const [state, setState] = useState([]);
   useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character").then(response => {
+    axios.get("https://rickandmortyapi.com/api/character").then((response) => {
       console.log(response);
       setState(
         response.data.results.reduce((array, item) => {
@@ -47,7 +47,7 @@ const App = () => {
           height: "100vh",
           display: "flex",
           justifyContent: "space-evenly",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <div style={{ display: "flex", flexFlow: "column nowrap" }}>
@@ -82,7 +82,7 @@ const App = () => {
           <InputNumber
             size="large"
             placeholder="Formateado"
-            formatter={value =>
+            formatter={(value) =>
               `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             max="10000"
