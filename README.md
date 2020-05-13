@@ -13,14 +13,19 @@ npm install --save mt-elements
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from 'mt-elements'
-import 'mt-elements/dist/index.css'
+import { Button, ThemeMTProvider, defaultThemes } from "mt-elements";
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return (
+      <ThemeMTProvider theme={defaultThemes.light}>
+        <Button type="primary" size="large" shape="round">
+          Test Button
+        </Button>
+      </ThemeMTProvider>
+    );
   }
 }
 ```

@@ -5,3 +5,5 @@ export { default as SelectInput } from "./components/SelectInput/SelectInput";
 export { default as Autocomplete } from "./components/Autocomplete/Autocomplete";
 export { default as ThemeMTProvider } from "./theme/ThemeMTProvider";
 export { default as defaultThemes } from "./theme/defaultThemes";
+export { default as withTheme } from "./theme/withTheme";
+export { default as makeStyles } from "./theme/makeStyles";
