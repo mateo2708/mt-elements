@@ -8,6 +8,7 @@ const NavBarLinkStyles = theme => {
       justifyContent: "center",
       alignItems: "flex-end",
       paddingBottom: "5px",
+      transition: "border-top 0.2s ease",
       "&:hover": {
         borderTop: `3px solid ${theme.primaryColor}`
       }

@@ -7,7 +7,7 @@ const NavBarStyles = theme => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      boxShadow: "0px 1px 3px 3px rgba(0,0,0,0.2)"
+      boxShadow: "0px 1px 3px 3px rgba(0,0,0,0.1)",
     },
     logo: {
       width: "20rem",

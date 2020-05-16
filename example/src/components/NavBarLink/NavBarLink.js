@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "mt-elements";
 
 import NavBarLinkStyles from "./NavBarLinkStyles";
+import classNames from "classnames";
 
 const NavBarLink = props => {
   const useStyles = makeStyles(NavBarLinkStyles, props.theme);
   const classes = useStyles();
 
-  const { children } = props;
+  const { children, selected } = props;
+
+  const containerClass = classNames({
+    [classes.container]: true,
+    [classes.selected]: selected
+  });
+
+  useEffect(() => {
+    console.log("renderizado");
+    return () => {};
+  }, []);
   return (
-    <div className={classes.container}>
+    <div className={containerClass}>
       <Link selected {...props} className={classes.navLink}>
         {children}
       </Link>

@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 const Router = props => {
   const { routes } = props;
-  console.log(routes);
   return (
     <Switch>
       {routes.map((prop, key) => {
