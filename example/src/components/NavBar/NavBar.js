@@ -21,7 +21,7 @@ const NavBar = props => {
           <FaGithub className={classes.icon} />
         </a>
         <a
-          href="https://www.npm.com"
+          href="https://www.npmjs.com/package/mt-elements"
           target="_blank"
           rel="noopener noreferrer"
         >

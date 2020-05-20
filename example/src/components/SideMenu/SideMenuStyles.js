@@ -2,7 +2,7 @@ const SideMenuStyles = theme => {
   return {
     container: {
       backgroundColor: "white",
-      width: "20rem",
+      flex: "0 0 22rem",
       height: "100%",
       borderTop: "1px solid #efefef",
       boxShadow: "3px 0px 3px 0px rgba(0,0,0,0.1)",

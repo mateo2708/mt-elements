@@ -2,18 +2,8 @@ import React from "react";
 import SectionRouter from "../../routes/Router";
 import { itemsRoutes } from "../../routes/routesGenerator";
 
-const classes = {
-  container: {
-    padding: "8px"
-  }
-};
-
 const Components = () => {
-  return (
-    <div style={classes.container}>
-      <SectionRouter routes={itemsRoutes("components")} />
-    </div>
-  );
+  return <SectionRouter routes={itemsRoutes("components")} />;
 };
 
 export default Components;

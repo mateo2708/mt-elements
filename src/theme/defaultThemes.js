@@ -10,20 +10,8 @@ const defaultThemes = {
     textColor: "black",
     textColorSecondary: "white",
     fontFamily: "'Open Sans', sans-serif",
-    secondaryFontFamily: "'Montserrat', sans-serif",
-  },
-  dark: {
-    primaryColor: "blue",
-    secondaryColor: "red",
-    linkColor: "purple",
-    successColor: "green",
-    warningColor: "orange",
-    errorColor: "red",
-    fontSizeBase: "14px",
-    textColor: "black",
-    textColorSecondary: "gray",
-    fontFamily: "'Open Sans', sans-serif",
-  },
+    secondaryFontFamily: "'Montserrat', sans-serif"
+  }
 };
 
 export default defaultThemes;

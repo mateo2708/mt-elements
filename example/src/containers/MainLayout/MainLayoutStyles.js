@@ -3,14 +3,19 @@ const MainLayoutStyles = () => {
     container: {
       width: "100vw",
       height: "100vh",
-      backgroundColor: "#f6f6f6",
+      backgroundColor: "#fafafa",
       display: "flex",
       flexFlow: "column nowrap",
       overflow: "hidden"
     },
     contentContainer: {
       display: "flex",
-      flexGrow: 1
+      flexGrow: 1,
+      overflow: "hidden"
+    },
+    mainContent: {
+      flexGrow: 1,
+      overflow: "auto"
     }
   };
 };

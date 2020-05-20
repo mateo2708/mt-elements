@@ -2,7 +2,6 @@ const CodeElementStyle = () => {
   return {
     container: {
       flexBasis: "20rem",
-      backgroundColor: "blue",
       borderRadius: "10px",
       overflow: "hidden",
       "& pre": {
