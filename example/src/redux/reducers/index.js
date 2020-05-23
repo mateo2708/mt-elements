@@ -2,8 +2,8 @@ const mapPathname = pathname => {
   const array = pathname.split("/");
   return {
     path: pathname,
-    firstLevel: array[1] || null,
-    secondLevel: array[2] || null
+    firstLevel: array[2] || null,
+    secondLevel: array[3] || null
   };
 };
 

@@ -1,7 +1,7 @@
 import dataStructure, { getAllPages } from "../constants/dataStructure";
 
 export const pagesRoutes = () => {
-  const pathStart = "/";
+  const pathStart = "/mt-elements/";
   const pages = getAllPages();
   const routes = pages.map(page => {
     return {
@@ -10,11 +10,12 @@ export const pagesRoutes = () => {
     };
   });
   routes.push({ redirect: true, to: pathStart + pages[0].route });
+  console.log("Rutas:", routes);
   return routes;
 };
 
 export const itemsRoutes = page => {
-  const pathStart = "/" + page + "/";
+  const pathStart = "/mt-elements/" + page + "/";
   const currentPage = dataStructure.pages.find(item => item.route === page);
   if (currentPage) {
     const items = currentPage.items;
@@ -25,6 +26,7 @@ export const itemsRoutes = page => {
       };
     });
     routes.push({ redirect: true, to: pathStart + items[0].route });
+    console.log("Rutas items:", routes);
     return routes;
   }
 

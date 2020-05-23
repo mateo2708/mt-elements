@@ -39,7 +39,7 @@ const MainLayout = props => {
             <NavBarLink
               key={key}
               selected={firstLevel === `${page.route}`}
-              to={`/${page.route}`}
+              to={`/mt-elements/${page.route}`}
               replace
             >
               {page.title}

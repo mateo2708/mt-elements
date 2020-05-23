@@ -25,7 +25,7 @@ const SideMenu = props => {
 
         return (
           <div className={itemClass} key={key}>
-            <Link className={classes.link} to={`/${page}/${item.route}`}>
+            <Link className={classes.link} to={`/mt-elements/${page}/${item.route}`}>
               {item.title}
             </Link>
           </div>
