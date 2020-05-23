@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "gh-pages": "^2.2.0",
     "mt-elements": "link:..",
     "prism-react-renderer": "^1.1.0",
     "react": "link:../node_modules/react",
@@ -14,6 +15,8 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",

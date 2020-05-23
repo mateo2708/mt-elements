@@ -4,6 +4,10 @@
 
 [![NPM](https://img.shields.io/npm/v/mt-elements.svg)](https://www.npmjs.com/package/mt-elements) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Docs
+
+To access full documentation go to https://mateo2708.github.io/mt-elements
+
 ## Install
 
 ```bash
