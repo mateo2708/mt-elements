@@ -1,9 +1,10 @@
 import { flexCenterRow, flexRowWrap, boxShadow } from "../../theme/stylesData";
 
-const SelectInputStyles = (theme) => {
+const SelectInputStyles = theme => {
   return {
     container: {
       margin: "1rem",
+      flex: "1 0 15rem"
     },
     inputContainer: {
       position: "relative",
@@ -15,8 +16,8 @@ const SelectInputStyles = (theme) => {
       "&:disabled": {
         backgroundColor: "#d8d8d8",
         color: "#a9a9a9",
-        cursor: "not-allowed",
-      },
+        cursor: "not-allowed"
+      }
     },
     input: {
       width: "100%",
@@ -31,11 +32,11 @@ const SelectInputStyles = (theme) => {
       appearance: "none",
       cursor: "pointer",
       "&:focus": {
-        outline: 0,
-      },
+        outline: 0
+      }
     },
     focused: {
-      ...boxShadow(1),
+      ...boxShadow(1)
     },
     inputMultiple: {
       position: "absolute",
@@ -44,7 +45,7 @@ const SelectInputStyles = (theme) => {
       height: "not-set",
       top: 0,
       left: 0,
-      padding: "0",
+      padding: "0"
     },
     multipleBox: {
       zIndex: 10,
@@ -53,8 +54,8 @@ const SelectInputStyles = (theme) => {
       alignItems: "center",
       "& .icon": {
         padding: "2px",
-        margin: "auto",
-      },
+        margin: "auto"
+      }
     },
     multipleElement: {
       position: "relative",
@@ -62,7 +63,7 @@ const SelectInputStyles = (theme) => {
       borderRadius: "50rem",
       padding: "5px 8px ",
       paddingRight: "30px",
-      margin: "2px 3px",
+      margin: "2px 3px"
     },
     multipleElementIcon: {
       position: "absolute",
@@ -73,8 +74,8 @@ const SelectInputStyles = (theme) => {
       height: "100%",
       ...flexCenterRow,
       "&:hover": {
-        cursor: "pointer",
-      },
+        cursor: "pointer"
+      }
     },
     optionBox: {
       width: "100%",
@@ -87,31 +88,31 @@ const SelectInputStyles = (theme) => {
       zIndex: 200,
       left: 0,
       "& ul": {
-        padding: 0,
-        margin: 0,
-      },
+        padding: "0 !important",
+        margin: "0 !important"
+      }
     },
     noOptions: {
       color: "#a9a9a9",
-      marginLeft: "8px",
+      marginLeft: "8px"
     },
     large: {
-      minHeight: "40px",
+      minHeight: "40px"
     },
     medium: {
-      minHeight: "32px",
+      minHeight: "32px"
     },
     small: {
-      minHeight: "24px",
+      minHeight: "24px"
     },
     round: {
       borderRadius: "50rem",
       "& :first-child": {
-        borderRadius: "50rem",
+        borderRadius: "50rem"
       },
       "& :last-child": {
-        borderRadius: "50rem",
-      },
+        borderRadius: "50rem"
+      }
     },
     icon: {
       position: "absolute",
@@ -122,45 +123,45 @@ const SelectInputStyles = (theme) => {
       height: "100%",
       ...flexCenterRow,
       "&:hover": {
-        cursor: "pointer",
-      },
+        cursor: "pointer"
+      }
     },
     label: {
       fontWeight: "500",
       marginBottom: "2px",
       marginLeft: "1px",
-      color: theme.textColor,
+      color: theme.textColor
     },
     error: {
-      borderColor: theme.errorColor,
+      borderColor: theme.errorColor
     },
     errorMessage: {
       textAlign: "right",
       color: theme.errorColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     warning: {
-      borderColor: theme.warningColor,
+      borderColor: theme.warningColor
     },
     warningMessage: {
       textAlign: "right",
       color: theme.warningColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     success: {
-      borderColor: theme.successColor,
+      borderColor: theme.successColor
     },
     successMessage: {
       textAlign: "right",
       color: theme.successColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     disabled: {
       opacity: 0.9,
       backgroundColor: "#d8d8d8",
       border: "1px solid #a9a9a9",
-      cursor: "not-allowed",
-    },
+      cursor: "not-allowed"
+    }
   };
 };
 

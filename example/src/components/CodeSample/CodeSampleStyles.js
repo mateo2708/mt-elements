@@ -1,13 +1,14 @@
 const CodeSampleStyles = () => {
   return {
     container: {
-      flexGrow: 1,
+      flex: "1 1 20rem",
       display: "flex",
       flexFlow: "row wrap",
       padding: "15px",
       backgroundColor: "white",
       borderRadius: "15px",
-      boxShadow: "2px 2px 5px 2px rgba(0,0,0,0.1)"
+      boxShadow: "2px 2px 5px 2px rgba(0,0,0,0.1)",
+      marginBottom: "2rem"
     },
     leftBox: {
       display: "flex",
@@ -15,13 +16,12 @@ const CodeSampleStyles = () => {
       flex: "1 0 20rem",
       justifyContent: "flex-start",
       padding: "0 2rem 0 1rem",
-      alignItems: "stretch"
+      alignItems: "stretch",
+      marginBottom: "1rem"
     },
     info: {
       flex: "1 0 5rem",
-      display: "flex",
-      flexFlow: "row wrap",
-      alignItems: "flex-start"
+      display: "block"
     },
     title: {
       flex: "1 0 15rem",
@@ -47,7 +47,9 @@ const CodeSampleStyles = () => {
     },
     rightBox: {
       flex: "1 0 20rem",
-      padding: "0 1rem"
+      padding: "0 1rem",
+      marginBottom: "1rem",
+      maxHeight: "26rem",
     }
   };
 };

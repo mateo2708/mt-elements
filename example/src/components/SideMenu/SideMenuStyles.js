@@ -7,7 +7,8 @@ const SideMenuStyles = theme => {
       borderTop: "1px solid #efefef",
       boxShadow: "3px 0px 3px 0px rgba(0,0,0,0.1)",
       display: "flex",
-      flexFlow: "column nowrap"
+      flexFlow: "column nowrap",
+      zIndex: 5
     },
     itemBox: {
       height: "4rem",

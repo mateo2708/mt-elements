@@ -40,7 +40,7 @@ const useStyles = createUseStyles(AutocompleteStyles);
  *   <Option>Opción 6</Option>
  * </Autocomplete>
  */
-const Autocomplete = (props) => {
+const Autocomplete = props => {
   const {
     id,
     size,
@@ -52,7 +52,7 @@ const Autocomplete = (props) => {
     onChange,
     options,
     maxOptions,
-    children,
+    children
   } = props;
 
   const theme = useTheme();
@@ -66,7 +66,7 @@ const Autocomplete = (props) => {
     [classes.inputContainer]: true,
     [classes[size] || classes.medium]: true,
     [classes[alertMode]]: true,
-    [classes.disabled]: disabled,
+    [classes.disabled]: disabled
   });
 
   useEffect(() => {
@@ -75,25 +75,24 @@ const Autocomplete = (props) => {
     }
   }, [text, onChange]);
 
-  const arrayFromChildren = (nodes) => {
+  const arrayFromChildren = nodes => {
     return nodes.reduce((array, child) => {
       return [...array, child.props.children];
     }, []);
   };
 
-  const parseComplexString = (string) => {
+  const parseComplexString = string => {
     return string
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const userInput = event.target.value;
     const array = options || arrayFromChildren(children) || [];
     const filteredOptions = array.filter(
-      (opt) =>
-        parseComplexString(opt).indexOf(parseComplexString(userInput)) > -1
+      opt => parseComplexString(opt).indexOf(parseComplexString(userInput)) > -1
     );
     const max = parseInt(maxOptions);
     if (userInput === "") {
@@ -110,7 +109,7 @@ const Autocomplete = (props) => {
     setText(userInput);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = e => {
     // User pressed the enter key
     if (e.keyCode === 13) {
       setIsOpen(false);
@@ -133,7 +132,7 @@ const Autocomplete = (props) => {
     }
   };
 
-  const handleClickOption = (event) => {
+  const handleClickOption = event => {
     event.persist();
     const value = event.target.getAttribute("value");
     setText(value);
@@ -159,7 +158,7 @@ const Autocomplete = (props) => {
           <label htmlFor={id}>{label}</label>
         </div>
       )}
-      <div className={boxClass}>
+      <div className={boxClass} data-testid="input-box">
         <input
           {...parentProps}
           id={id}
@@ -194,7 +193,9 @@ const Autocomplete = (props) => {
               )}
             </ul>
           </div>
-        ) : undefined}
+        ) : (
+          undefined
+        )}
       </div>
       {alertMessage && (
         <div className={classes[`${alertMode}Message`]}>{alertMessage}</div>
@@ -213,7 +214,7 @@ Autocomplete.propTypes = {
   alertMessage: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.array,
-  maxOptions: PropTypes.number,
+  maxOptions: PropTypes.number
 };
 
 export default Autocomplete;

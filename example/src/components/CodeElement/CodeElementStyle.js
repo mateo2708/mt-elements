@@ -1,9 +1,11 @@
 const CodeElementStyle = () => {
   return {
     container: {
+      height: "100%",
       flexBasis: "20rem",
+      flexGrow: 1,
       borderRadius: "10px",
-      overflow: "hidden",
+      overflow: "auto",
       "& pre": {
         margin: "0",
         width: "100%",

@@ -35,7 +35,7 @@ const useStyles = createUseStyles(SelectInputStyles);
  *   <Option value="3">Opción 3</Option>
  * </SelectInput>
  */
-const SelectInput = (props) => {
+const SelectInput = props => {
   const {
     id,
     size,
@@ -47,7 +47,7 @@ const SelectInput = (props) => {
     alertMessage,
     onChange,
     children,
-    className,
+    className
   } = props;
 
   const theme = useTheme();
@@ -65,10 +65,10 @@ const SelectInput = (props) => {
     [classes[alertMode]]: alertMode,
     [classes.focused]: focused,
     [classes.disabled]: disabled,
-    [className]: className,
+    [className]: className
   });
 
-  const handleSelection = (event) => {
+  const handleSelection = event => {
     event.persist();
     const value = event.target.value
       ? event.target.value.toString()
@@ -81,18 +81,18 @@ const SelectInput = (props) => {
     setIsOpen(!isOpen);
   };
 
-  const handleFocus = (focus) => {
+  const handleFocus = focus => {
     if (focus !== focused) {
       setFocused(focus);
     }
   };
 
-  const isSelected = (value) => {
+  const isSelected = value => {
     return selected.includes(value ? value.toString() : undefined);
   };
 
-  const getElementFromChildren = (value) => {
-    const child = children.find((item) => item.props.value === value);
+  const getElementFromChildren = value => {
+    const child = children.find(item => item.props.value === value);
     return child ? child.props.children : undefined;
   };
 
@@ -102,7 +102,7 @@ const SelectInput = (props) => {
       case "selection":
         if (mode === "multiple") {
           if (value && state.includes(value.toString())) {
-            return state.filter((item) => item !== value);
+            return state.filter(item => item !== value);
           } else if (value) {
             return [...state, value];
           }
@@ -111,7 +111,7 @@ const SelectInput = (props) => {
       case "add":
         return [...state, value];
       case "remove":
-        return state.filter((item) => item !== value);
+        return state.filter(item => item !== value);
       default:
         return state;
     }
@@ -139,7 +139,7 @@ const SelectInput = (props) => {
           <label htmlFor={id}>{label}</label>
         </div>
       )}
-      <div className={boxClass}>
+      <div className={boxClass} data-testid="input-box">
         <div className={classes.icon}>
           {isOpen ? (
             <FaAngleUp color="#a0a0a0" />
@@ -153,7 +153,7 @@ const SelectInput = (props) => {
           className={classNames({
             [classes.input]: true,
             [classes[size] || classes.medium]: true,
-            [classes.inputMultiple]: mode === "multiple",
+            [classes.inputMultiple]: mode === "multiple"
           })}
           value={
             (mode !== "multiple" && getElementFromChildren(selected[0])) || ""
@@ -184,7 +184,9 @@ const SelectInput = (props) => {
               );
             })}
           </div>
-        ) : undefined}
+        ) : (
+          undefined
+        )}
         {isOpen ? (
           <div ref={boxRef} className={classes.optionBox}>
             <ul>
@@ -193,7 +195,7 @@ const SelectInput = (props) => {
                   return React.cloneElement(child, {
                     key: key,
                     onClick: handleSelection,
-                    selected: isSelected(child.props.value),
+                    selected: isSelected(child.props.value)
                   });
                 })
               ) : (
@@ -201,7 +203,9 @@ const SelectInput = (props) => {
               )}
             </ul>
           </div>
-        ) : undefined}
+        ) : (
+          undefined
+        )}
       </div>
       {alertMessage && (
         <div className={classes[`${alertMode}Message`]}>{alertMessage}</div>
@@ -216,7 +220,7 @@ SelectInput.propTypes = {
   label: PropTypes.string,
   alertMode: PropTypes.string,
   alertMessage: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 SelectInput.Option = Option;

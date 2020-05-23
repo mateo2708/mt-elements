@@ -1,20 +1,17 @@
-import React from "react";
 import Docs from "../containers/DocsPage/Docs";
 import Components from "../containers/ComponentsPage/Components";
-import Content from "../components/ContentComponent/Content";
 
 //Pages
 import About from "../pages/About/About";
 import Installation from "../pages/Installation/Installation";
 import Usage from "../pages/Usage/Usage";
-
-const Demo = () => {
-  return (
-    <Content>
-      <div style={{ display: "flex", width: "50rem" }}>El demo</div>
-    </Content>
-  );
-};
+import Styling from "../pages/Styling/Styling";
+import Theming from "../pages/Theming/Theming";
+import ButtonPage from "../pages/Button/Button";
+import InputTextPage from "../pages/InputText/InputTextPage";
+import InputNumberPage from "../pages/InputNumber/InputNumberPage";
+import SelectInputPage from "../pages/SelectInput/SelectInputPage";
+import AutocompletePage from "../pages/Autocomplete/AutocompletePage";
 
 const dataStructure = {
   pages: [
@@ -41,6 +38,18 @@ const dataStructure = {
           route: "usage",
           title: "Usage",
           component: Usage
+        },
+        {
+          order: 3,
+          route: "styling",
+          title: "Styling Components",
+          component: Styling
+        },
+        {
+          order: 4,
+          route: "theming",
+          title: "Theming",
+          component: Theming
         }
       ]
     },
@@ -52,15 +61,33 @@ const dataStructure = {
       items: [
         {
           order: 0,
-          route: "installation",
-          title: "Installation",
-          component: Demo
+          route: "button",
+          title: "Button",
+          component: ButtonPage
         },
         {
           order: 1,
-          route: "usage",
-          title: "Usage",
-          component: Demo
+          route: "input-text",
+          title: "InputText",
+          component: InputTextPage
+        },
+        {
+          order: 2,
+          route: "input-number",
+          title: "InputNumber",
+          component: InputNumberPage
+        },
+        {
+          order: 3,
+          route: "select-input",
+          title: "SelectInput",
+          component: SelectInputPage
+        },
+        {
+          order: 4,
+          route: "autocomplete",
+          title: "Autocomplete",
+          component: AutocompletePage
         }
       ]
     }

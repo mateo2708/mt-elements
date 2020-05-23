@@ -1,7 +1,7 @@
 const ContentStyles = () => {
   return {
     container: {
-      padding: "2rem 4rem"
+      padding: "1rem 2rem"
     }
   };
 };

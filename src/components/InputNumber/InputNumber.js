@@ -32,12 +32,12 @@ const useStyles = createUseStyles(inputNumberStyles);
  *    onChange={(e) => console.log(e))}
  * />
  */
-const InputNumber = (props) => {
+const InputNumber = props => {
   const {
     size,
     label,
-    shape,
-    step,
+    shape = "rect",
+    step = 1,
     max,
     min,
     formatter,
@@ -47,7 +47,7 @@ const InputNumber = (props) => {
     alertMessage,
     onChange,
     inputRef,
-    className,
+    className
   } = props;
 
   const theme = useTheme();
@@ -61,7 +61,7 @@ const InputNumber = (props) => {
     [classes[shape]]: true,
     [classes[alertMode]]: true,
     [classes.disabled]: disabled,
-    className,
+    className
   });
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const InputNumber = (props) => {
     }
   }, [value, onChange]);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     let text = event.target.value;
     let newValue = parseFloat(text.replace(/[^0-9.]/g, ""));
     setValue(newValue);
@@ -92,7 +92,7 @@ const InputNumber = (props) => {
     setShowSpinner(!showSpinner);
   };
 
-  const handleSpinnerAction = (action) => {
+  const handleSpinnerAction = action => {
     const stepValue = parseFloat(step) || 1;
     switch (action) {
       case "up":
@@ -121,6 +121,7 @@ const InputNumber = (props) => {
     <div className={classes.container}>
       {label && <div className={classes.label}>{label}</div>}
       <div
+        data-testid="input-box"
         className={boxClass}
         onMouseEnter={toggleShowSpinner}
         onMouseLeave={toggleShowSpinner}
@@ -170,8 +171,7 @@ InputNumber.propTypes = {
   label: PropTypes.string,
   alertMode: PropTypes.string,
   alertMessage: PropTypes.string,
-  onChange: PropTypes.func,
-  inputRef: PropTypes.node,
+  onChange: PropTypes.func
 };
 
 export default InputNumber;

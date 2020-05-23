@@ -25,7 +25,8 @@ const TableStyles = theme => {
     header: {
       fontWeight: "bold",
       backgroundColor: "#efefef",
-      color: theme.primaryColor
+      color: theme.primaryColor,
+      textTransform: "capitalize"
     }
   };
 };

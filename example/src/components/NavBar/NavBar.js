@@ -4,13 +4,17 @@ import NavBarStyles from "./NavBarStyles";
 import { FaGithub, FaNpm } from "react-icons/fa";
 import { withTheme, makeStyles } from "mt-elements";
 
+import MTlogo from "../../assets/LogoMTElements.svg";
+
 const NavBar = props => {
   const useStyles = makeStyles(NavBarStyles, props.theme);
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
-      <div className={classes.logo}>MT Elements</div>
+      <div className={classes.logo}>
+        <img src={MTlogo} alt="MT Elements logo" />
+      </div>
       <div className={classes.linksContainer}>{props.children}</div>
       <div className={classes.socialLinks}>
         <a

@@ -8,10 +8,16 @@ const NavBarStyles = theme => {
       justifyContent: "space-between",
       alignItems: "center",
       boxShadow: "0px 1px 3px 3px rgba(0,0,0,0.1)",
+      zIndex: 5
     },
     logo: {
       width: "20rem",
-      height: "100%"
+      height: "100%",
+      display: "flex",
+      justifyContent: "center",
+      "& img": {
+        height: "100%"
+      }
     },
     linksContainer: {
       display: "flex",
