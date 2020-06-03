@@ -8,7 +8,7 @@ const InputTextStyles = (theme) => {
     inputContainer: {
       position: "relative",
       ...flexRowWrap,
-      border: "1px solid #a9a9a9",
+      border: `1px solid ${theme.borderColor}`,
       borderRadius: "3px",
     },
     input: {
@@ -20,8 +20,8 @@ const InputTextStyles = (theme) => {
       padding: "0 8px",
       borderRadius: "3px",
       "&:disabled": {
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
         cursor: "not-allowed",
       },
       "&:focus": {

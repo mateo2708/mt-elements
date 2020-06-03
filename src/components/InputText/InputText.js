@@ -41,12 +41,13 @@ const InputText = props => {
     alertMode,
     alertMessage,
     onChange,
-    inputRef
+    inputRef,
+    value
   } = props;
 
   const theme = useTheme();
   const classes = useStyles(theme);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(value || "");
   const [contType, setContType] = useState(text);
   const [passwordFlag, setPasswordFlag] = useState(true);
 
@@ -66,18 +67,16 @@ const InputText = props => {
     }
   }, [type, passwordFlag]);
 
-  useEffect(() => {
+  const handleChange = event => {
+    const text = event.target.value;
+    setText(text);
     if (onChange) {
       onChange(text);
     }
-  }, [text, onChange]);
-
-  const handleChange = event => {
-    setText(event.target.value);
   };
 
   const handlePassword = () => {
-    setPasswordFlag(!passwordFlag);
+    setPasswordFlag(flag => !flag);
   };
   const parentProps = ({ alertMode, alertMessage, reference }, ...props) =>
     props;
@@ -98,7 +97,7 @@ const InputText = props => {
           disabled={disabled}
           onChange={handleChange}
           ref={inputRef}
-          value={text}
+          value={value || text}
         />
         {type === "password" && (
           <div className={classes.icon} onClick={!disabled && handlePassword}>
@@ -111,7 +110,13 @@ const InputText = props => {
         )}
       </div>
       {alertMessage && (
-        <div className={classes[`${alertMode}Message`]}>{alertMessage}</div>
+        <div
+          id="alertMessage"
+          data-testid="alert-box"
+          className={classes[`${alertMode}Message`]}
+        >
+          {alertMessage}
+        </div>
       )}
     </div>
   );

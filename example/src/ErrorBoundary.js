@@ -14,7 +14,6 @@ class ErrorBoundary extends Component {
 
   //funcion que contiene dos variables error y info, lo que hace es que te muestra en error y la informacion detallada.
   componentDidCatch(error, info) {
-    console.log("Errorsiado: ", error);
     this.setState({ hasError: true, message: error.message });
   }
   render() {

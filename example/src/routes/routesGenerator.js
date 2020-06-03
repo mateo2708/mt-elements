@@ -10,7 +10,6 @@ export const pagesRoutes = () => {
     };
   });
   routes.push({ redirect: true, to: pathStart + pages[0].route });
-  console.log("Rutas:", routes);
   return routes;
 };
 
@@ -26,7 +25,6 @@ export const itemsRoutes = page => {
       };
     });
     routes.push({ redirect: true, to: pathStart + items[0].route });
-    console.log("Rutas items:", routes);
     return routes;
   }
 

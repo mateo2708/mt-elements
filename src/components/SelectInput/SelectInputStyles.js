@@ -9,7 +9,7 @@ const SelectInputStyles = theme => {
     inputContainer: {
       position: "relative",
       ...flexRowWrap,
-      border: "1px solid #a9a9a9",
+      border: `1px solid ${theme.borderColor}`,
       borderRadius: "3px",
       alignItems: "center",
       padding: "1px",
@@ -59,7 +59,8 @@ const SelectInputStyles = theme => {
     },
     multipleElement: {
       position: "relative",
-      backgroundColor: "#e0e0e0",
+      backgroundColor: theme.selectElementColor,
+      color: theme.selectElementTextColor,
       borderRadius: "50rem",
       padding: "5px 8px ",
       paddingRight: "30px",
@@ -158,8 +159,8 @@ const SelectInputStyles = theme => {
     },
     disabled: {
       opacity: 0.9,
-      backgroundColor: "#d8d8d8",
-      border: "1px solid #a9a9a9",
+      backgroundColor: theme.disabledBackgroundColor,
+      border: `1px solid ${theme.borderColor}`,
       cursor: "not-allowed"
     }
   };

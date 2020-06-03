@@ -1,15 +1,15 @@
 import { flexRowWrap, boxShadow } from "../../theme/stylesData";
 
-const InputNumberStyles = (theme) => {
+const InputNumberStyles = theme => {
   return {
     container: {
-      margin: "1rem",
+      margin: "1rem"
     },
     inputContainer: {
       position: "relative",
       ...flexRowWrap,
-      border: "1px solid #a9a9a9",
-      borderRadius: "3px",
+      border: `1px solid ${theme.borderColor}`,
+      borderRadius: "3px"
     },
     input: {
       flexGrow: 1,
@@ -22,39 +22,39 @@ const InputNumberStyles = (theme) => {
       padding: "0 8px",
       borderRadius: "3px",
       "&:disabled": {
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
-        cursor: "not-allowed",
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
+        cursor: "not-allowed"
       },
       "&:focus": {
         outline: 0,
-        ...boxShadow(1),
+        ...boxShadow(1)
       },
       WebkitAppearance: "textfield",
       MozAppearance: "textfield",
       appearance: "textfield",
       '&::-webkit-inner-spin-button,\n  input[type="number"]::-webkit-outer-spin-button': {
-        WebkitAppearance: "none",
-      },
+        WebkitAppearance: "none"
+      }
     },
     large: {
-      height: "40px",
+      height: "40px"
     },
     medium: {
-      height: "32px",
+      height: "32px"
     },
     small: {
-      height: "24px",
+      height: "24px"
     },
     round: {
       borderRadius: "50rem",
       "& >:first-child": {
-        borderRadius: "50rem",
+        borderRadius: "50rem"
       },
       "& >:last-child": {
         borderTopRightRadius: "50rem",
-        borderBottomRightRadius: "50rem",
-      },
+        borderBottomRightRadius: "50rem"
+      }
     },
     spinner: {
       position: "absolute",
@@ -68,8 +68,8 @@ const InputNumberStyles = (theme) => {
       overflow: "hidden",
       transition: "opacity .24s linear .1s",
       "&:hover": {
-        cursor: "pointer",
-      },
+        cursor: "pointer"
+      }
     },
     upArrow: {
       textAlign: "center",
@@ -80,8 +80,8 @@ const InputNumberStyles = (theme) => {
       borderBottom: "1px solid #00000030",
       overflow: "hidden",
       "&:hover": {
-        backgroundColor: "#00000018",
-      },
+        backgroundColor: "#00000018"
+      }
     },
     downArrow: {
       textAlign: "center",
@@ -92,44 +92,44 @@ const InputNumberStyles = (theme) => {
       borderTop: "1px solid #00000030",
       overflow: "hidden",
       "&:hover": {
-        backgroundColor: "#00000018",
-      },
+        backgroundColor: "#00000018"
+      }
     },
     label: {
       fontWeight: "500",
       marginBottom: "2px",
       marginLeft: "1px",
-      color: theme.textColor,
+      color: theme.textColor
     },
     error: {
-      borderColor: theme.errorColor,
+      borderColor: theme.errorColor
     },
     errorMessage: {
       textAlign: "right",
       color: theme.errorColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     warning: {
-      borderColor: theme.warningColor,
+      borderColor: theme.warningColor
     },
     warningMessage: {
       textAlign: "right",
       color: theme.warningColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     success: {
-      borderColor: theme.successColor,
+      borderColor: theme.successColor
     },
     successMessage: {
       textAlign: "right",
       color: theme.successColor,
-      fontSize: "0.9rem",
+      fontSize: "0.9rem"
     },
     disabled: {
       opacity: 0.9,
-      backgroundColor: "#d8d8d8",
-      border: "1px solid #a9a9a9",
-    },
+      backgroundColor: theme.disabledBackgroundColor,
+      border: `1px solid ${theme.borderColor}`
+    }
   };
 };
 

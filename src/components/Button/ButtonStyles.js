@@ -1,4 +1,4 @@
-const buttonStyles = (theme) => {
+const buttonStyles = theme => {
   return {
     button: {
       fontFamily: theme.secondaryFontFamily,
@@ -8,26 +8,26 @@ const buttonStyles = (theme) => {
       margin: "0.5rem",
       transition: "box-shadow 0.3s ease",
       "&:hover": {
-        cursor: "pointer",
+        cursor: "pointer"
       },
       "&:active": {
-        boxShadow: `0px 0px 20px -10px ${theme.primaryColor}`,
-      },
+        boxShadow: `0px 0px 20px -10px ${theme.primaryColor}`
+      }
     },
     large: {
       height: "40px",
       padding: "6.4px 15px",
-      fontSize: "1.2rem",
+      fontSize: "1.2rem"
     },
     medium: {
       height: "32px",
       padding: "4px 15px",
-      fontSize: "1.1rem",
+      fontSize: "1.1rem"
     },
     small: {
       height: "2rem",
       padding: "0 7px",
-      fontSize: "1rem",
+      fontSize: "1rem"
     },
     primary: {
       backgroundColor: theme.primaryColor,
@@ -39,48 +39,48 @@ const buttonStyles = (theme) => {
       "&:hover": {
         backgroundColor: "white",
         color: theme.primaryColor,
-        border: `1px solid ${theme.primaryColor}`,
+        border: `1px solid ${theme.primaryColor}`
       },
       "&:disabled": {
         opacity: 0.9,
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
-        border: "1px solid #a9a9a9",
-      },
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
+        border: `1px solid ${theme.borderColor}`
+      }
     },
     secondary: {
       backgroundColor: "white",
-      color: "#616161",
-      border: "1px solid #9d9d9d",
+      color: theme.borderColor,
+      border: `1px solid ${theme.borderColor}`,
       borderRadius: "4px",
       transition: "color 0.2s ease, border 0.2s ease",
       "&:hover": {
         color: theme.primaryColor,
-        border: `1px solid ${theme.primaryColor}`,
+        border: `1px solid ${theme.primaryColor}`
       },
       "&:disabled": {
         opacity: 0.9,
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
-        border: "1px solid #a9a9a9",
-      },
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
+        border: `1px solid ${theme.borderColor}`
+      }
     },
     dashed: {
       backgroundColor: "white",
-      color: "#616161",
-      border: "1px dashed #9d9d9d",
+      color: theme.borderColor,
+      border: `1px solid ${theme.borderColor}`,
       borderRadius: "4px",
       transition: "color 0.2s ease, border 0.2s ease",
       "&:hover": {
         color: theme.primaryColor,
-        border: `1px dashed ${theme.primaryColor}`,
+        border: `1px dashed ${theme.primaryColor}`
       },
       "&:disabled": {
         opacity: 0.9,
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
-        border: "1px dashed #a9a9a9",
-      },
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
+        border: `1px solid ${theme.borderColor}`
+      }
     },
     link: {
       backgroundColor: "transparent",
@@ -90,13 +90,12 @@ const buttonStyles = (theme) => {
       transition: "color 0.2s ease",
       "&:disabled": {
         opacity: 0.9,
-        color: "#a9a9a9",
-        border: "1px dashed #a9a9a9",
-      },
+        color: theme.disabledTextColor
+      }
     },
     round: {
-      borderRadius: "50rem",
-    },
+      borderRadius: "50rem"
+    }
   };
 };
 

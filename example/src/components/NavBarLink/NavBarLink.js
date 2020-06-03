@@ -17,7 +17,6 @@ const NavBarLink = props => {
   });
 
   useEffect(() => {
-    console.log("renderizado");
     return () => {};
   }, []);
   return (

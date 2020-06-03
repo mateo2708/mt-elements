@@ -108,8 +108,6 @@ const SelectInput = props => {
           }
         }
         return [value === state[0] ? undefined : value];
-      case "add":
-        return [...state, value];
       case "remove":
         return state.filter(item => item !== value);
       default:

@@ -1,18 +1,11 @@
 import React from "react";
 import Button from "../Button";
-import { cleanup, render } from "@testing-library/react";
-
-import ThemeMTProvider from "../../../theme/ThemeProvider";
-import defaultThemes from "../../../theme/defaultThemes";
+import { cleanup, render } from "../../../test-utils";
 
 afterEach(cleanup);
 
 test("Testing default props", () => {
-  const { getByRole } = render(
-    <ThemeMTProvider theme={defaultThemes.light}>
-      <Button />
-    </ThemeMTProvider>
-  );
+  const { getByRole } = render(<Button />);
   const button = getByRole("button");
   expect(button.className).toMatch(/primary/);
   expect(button.className).toMatch(/medium/);
@@ -20,74 +13,46 @@ test("Testing default props", () => {
 
 describe("Testing different types of button", () => {
   test("- Type { primary }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button type="primary" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button type="primary" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/primary/);
   });
   test("- Type { secondary }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button type="secondary" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button type="secondary" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/secondary/);
   });
   test("- Type { dasehd }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button type="dashed" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button type="dashed" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/dashed/);
   });
   test("- Type { link }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button type="link" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button type="link" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/link/);
   });
 });
 
-describe("Testine differente sizes of button", () => {
+describe("Testing different sizes of button", () => {
   test("- Size { large }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button size="large" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button size="large" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/large/);
   });
   test("- Size { medium }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button size="medium" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button size="medium" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/medium/);
   });
   test("- Size { small }", () => {
-    const { getByRole } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <Button size="small" />
-      </ThemeMTProvider>
-    );
+    const { getByRole } = render(<Button size="small" />);
     const button = getByRole("button");
     expect(button).toBeTruthy();
     expect(button.className).toMatch(/small/);
@@ -95,11 +60,7 @@ describe("Testine differente sizes of button", () => {
 });
 
 test("Testing disabled", () => {
-  const { getByRole } = render(
-    <ThemeMTProvider theme={defaultThemes.light}>
-      <Button disabled />
-    </ThemeMTProvider>
-  );
+  const { getByRole } = render(<Button disabled />);
   const button = getByRole("button");
   expect(button).toBeTruthy();
   expect(button.disabled).toBeTruthy();

@@ -1,8 +1,6 @@
 import React from "react";
 import SelectInput from "../SelectInput";
-import { cleanup, render } from "@testing-library/react";
-import ThemeMTProvider from "../../../theme/ThemeProvider";
-import defaultThemes from "../../../theme/defaultThemes";
+import { cleanup, render } from "../../../test-utils";
 
 const { Option } = SelectInput;
 
@@ -11,12 +9,10 @@ afterEach(cleanup);
 describe("Testine differente sizes of input", () => {
   test("- Size { large }", () => {
     const { getByTestId } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <SelectInput size="large">
-          <Option value="1">Opción 1</Option>
-          <Option value="2">Opción 2</Option>
-        </SelectInput>
-      </ThemeMTProvider>
+      <SelectInput size="large">
+        <Option value="1">Opción 1</Option>
+        <Option value="2">Opción 2</Option>
+      </SelectInput>
     );
     const inputBox = getByTestId("input-box");
     expect(inputBox).toBeTruthy();
@@ -24,12 +20,10 @@ describe("Testine differente sizes of input", () => {
   });
   test("- Size { medium }", () => {
     const { getByTestId } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <SelectInput size="medium">
-          <Option value="1">Opción 1</Option>
-          <Option value="2">Opción 2</Option>
-        </SelectInput>
-      </ThemeMTProvider>
+      <SelectInput size="medium">
+        <Option value="1">Opción 1</Option>
+        <Option value="2">Opción 2</Option>
+      </SelectInput>
     );
     const inputBox = getByTestId("input-box");
     expect(inputBox).toBeTruthy();
@@ -37,12 +31,10 @@ describe("Testine differente sizes of input", () => {
   });
   test("- Size { small }", () => {
     const { getByTestId } = render(
-      <ThemeMTProvider theme={defaultThemes.light}>
-        <SelectInput size="small">
-          <Option value="1">Opción 1</Option>
-          <Option value="2">Opción 2</Option>
-        </SelectInput>
-      </ThemeMTProvider>
+      <SelectInput size="small">
+        <Option value="1">Opción 1</Option>
+        <Option value="2">Opción 2</Option>
+      </SelectInput>
     );
     const inputBox = getByTestId("input-box");
     expect(inputBox).toBeTruthy();

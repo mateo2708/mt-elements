@@ -13,11 +13,6 @@ const classes = {
 const GettingStarted = () => {
   return (
     <div style={classes.container}>
-      {/* <CodeElement
-        code={code}
-        language="jsx"
-        style={{ width: "50rem", height: "10rem" }}
-      /> */}
       <SectionRouter routes={itemsRoutes("getting-started")} />
     </div>
   );

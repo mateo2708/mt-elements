@@ -70,36 +70,37 @@ const InputNumber = props => {
     }
   }, [value, onChange]);
 
-  const handleChange = event => {
-    let text = event.target.value;
-    let newValue = parseFloat(text.replace(/[^0-9.]/g, ""));
-    setValue(newValue);
-  };
-
-  useEffect(() => {
+  const checkedNumber = newValue => {
     if (max || min) {
       const maxValue = parseFloat(max);
       const minValue = parseFloat(min);
-      if (value > maxValue) {
+      if (newValue > maxValue) {
         setValue(maxValue);
-      } else if (value < minValue) {
+      } else if (newValue < minValue) {
         setValue(minValue);
+      } else {
+        setValue(newValue);
       }
     }
-  }, [value, max, min]);
+  };
+  const handleChange = event => {
+    let text = event.target.value;
+    let newValue = text ? parseFloat(text.replace(/[^0-9.]/g, "")) : "";
+    checkedNumber(newValue);
+  };
 
   const toggleShowSpinner = () => {
-    setShowSpinner(!showSpinner);
+    setShowSpinner(flag => !flag);
   };
 
   const handleSpinnerAction = action => {
     const stepValue = parseFloat(step) || 1;
     switch (action) {
       case "up":
-        setValue((value === "" ? 0 : value) + stepValue);
+        checkedNumber((value === "" ? 0 : value) + stepValue);
         break;
       case "down":
-        setValue((value === "" ? 0 : value) - stepValue);
+        checkedNumber((value === "" ? 0 : value) - stepValue);
         break;
       default:
         break;

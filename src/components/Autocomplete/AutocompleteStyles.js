@@ -8,7 +8,7 @@ const AutocompleteStyles = theme => {
     inputContainer: {
       position: "relative",
       ...flexRowWrap,
-      border: "1px solid #a9a9a9",
+      border: `1px solid ${theme.borderColor}`,
       borderRadius: "3px"
     },
     input: {
@@ -20,8 +20,8 @@ const AutocompleteStyles = theme => {
       padding: "0 8px",
       borderRadius: "3px",
       "&:disabled": {
-        backgroundColor: "#d8d8d8",
-        color: "#a9a9a9",
+        backgroundColor: theme.disabledBackgroundColor,
+        color: theme.disabledTextColor,
         cursor: "not-allowed"
       },
       "&:focus": {
@@ -81,8 +81,8 @@ const AutocompleteStyles = theme => {
     },
     disabled: {
       opacity: 0.9,
-      backgroundColor: "#d8d8d8",
-      border: "1px solid #a9a9a9",
+      backgroundColor: theme.disabledBackgroundColor,
+      border: `1px solid ${theme.borderColor}`,
       cursor: "not-allowed"
     },
     optionBox: {
@@ -103,7 +103,7 @@ const AutocompleteStyles = theme => {
       }
     },
     noOptions: {
-      color: "#a9a9a9",
+      color: theme.disabledTextColor,
       marginLeft: "8px"
     }
   };
